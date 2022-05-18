@@ -30,4 +30,8 @@ connectStatus.once("open", () => console.log("--> Connected to Database"));
 
 
 /* Server Gateway Response */
+app.get('/', (req, res) => {
+    res.send("Welcome to Codeversity")
+});
+
 app.listen(port, () => console.log(`--> API hosted on port: ${port}`));
