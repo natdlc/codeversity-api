@@ -1,25 +1,34 @@
-// [SECTION] Dependencies / Modules
+/* Dependencies / Modules */
 const express = require("express");
 const mongoose = require("mongoose");
 
-// [SECTION] Environment Setup
+
+/* Environment Setup */
 const port = 4000;
 
-// [SECTION] Server Setup
+
+/* Server Setup */
 const app = express();
 
-// [SECTION] Database Connection
-// mongoose.connect(
-// 	"mongodb+srv://natcorpuz:admin123@cluster0.yso0q.mongodb.net/toDo176?retryWrites=true&w=majority",
-// 	{
-// 		//avoids deprecation warnings because of connection issues
-// 		useNewUrlParser: true,
-// 		useUnifiedTopology: true,
-// 	}
-// );
 
-// [SECTION] Backend Routes
+/* Middlewares */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
-// [SECTION] Server Gateway Response
-app.listen(port, ()=>console.log(`API hosted on port: ${port}`))
+/* Database Connection */
+mongoose.connect(
+	"mongodb+srv://natcorpuz:admin123@cluster0.yso0q.mongodb.net/?retryWrites=true&w=majority"
+);
+
+let connectStatus = mongoose.connection;
+
+connectStatus.on("error", console.error.bind(console, "connection error"));
+
+connectStatus.once("open", () => console.log("--> Connected to Database"));
+
+/* Backend Routes */
+
+
+/* Server Gateway Response */
+app.listen(port, () => console.log(`--> API hosted on port: ${port}`));
