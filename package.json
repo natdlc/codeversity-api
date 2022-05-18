@@ -1,13 +1,18 @@
 {
-  "name": "s32-s36-booking-app-api",
+  "name": "codeverse",
   "version": "1.0.0",
-  "description": "",
+  "description": "this is my course booking project for zuitt",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "enrollment-system",
+    "course-booking",
+    "api-collection",
+    "bootcamp-project"
+  ],
+  "author": "Nathanel Corpuz",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
