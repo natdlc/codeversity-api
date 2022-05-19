@@ -13,10 +13,10 @@ const route = express.Router(); //contains methods for manipulating data in user
 
 /* [CREATE] */
 route.post("/register", (req, res) => {
-    console.log(req.body);
-    // controller.register(req.body)
-    //     .then(newUser => res.send(newUser))
-    //     .catch(err => "User creation failed");
+    let userData = req.body;
+    controller.register(userData)
+        .then(newUser => res.send(newUser))
+        .catch(err => "User creation failed");
 })
 
 
