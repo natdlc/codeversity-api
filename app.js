@@ -13,11 +13,7 @@ const port = process.env.PORT;
 
 /* Server Setup */
 const app = express();
-
-
-/* Middlewares */
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //middleware
 
 
 /* Database Connection */
@@ -27,12 +23,10 @@ connectStatus.once("open", () => console.log("--> Connected to Database"));
 
 
 /* Backend Routes */
-app.use("/users", userRoutes);
+app.use("/", userRoutes);
 
 
 /* Server Gateway Response */
-app.get('/', (req, res) => {
-    res.send("Welcome to Codeversity")
-});
+app.get('/', (req, res) => res.send("Welcome to Codeversity"));
 
 app.listen(port, () => console.log(`--> API hosted on port: ${port}`));
