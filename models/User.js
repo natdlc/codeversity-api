@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
 			},
 			status: {
 				type: String,
-				default: "Pending", //enrollment status (failed, pending, success)
+				default: "Pending", //failed, pending, success
 			},
 		},
 	],

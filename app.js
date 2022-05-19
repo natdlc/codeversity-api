@@ -1,7 +1,8 @@
 /* Dependencies / Modules */
 const express = require("express");
 const mongoose = require("mongoose");
-const dotenv = require('dotenv'); //reads .env file
+const dotenv = require("dotenv"); //reads .env file
+const userRoutes = require("./routes/users");
 
 
 /* Environment Setup */
@@ -26,7 +27,7 @@ connectStatus.once("open", () => console.log("--> Connected to Database"));
 
 
 /* Backend Routes */
-
+app.use("/users", userRoutes);
 
 
 /* Server Gateway Response */
