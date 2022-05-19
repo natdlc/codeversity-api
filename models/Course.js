@@ -43,7 +43,5 @@ const courseSchema = new mongoose.Schema({
 
 
 
-/* Models
-    - provides interface for API to communicate to MongoDB
-*/
+/* Models */
 module.exports = mongoose.model("Course", courseSchema);

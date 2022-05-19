@@ -31,14 +31,13 @@ const userSchema = new mongoose.Schema({
 	},
 	enrollments: [
 		{
-			//every doc stored describes a course that a user is enrolled in
 			courseId: {
 				type: String,
 				required: [true, "Course ID is Required"],
 			},
 			enrolledOn: {
 				type: Date,
-				default: new Date(), //date enrolled
+				default: new Date(),
 			},
 			status: {
 				type: String,
@@ -50,7 +49,5 @@ const userSchema = new mongoose.Schema({
 
 
 
-/* Models
-    - provides interface for API to communicate to MongoDB
-*/
+/* Models */
 module.exports = mongoose.model("User", userSchema);
