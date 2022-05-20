@@ -6,7 +6,7 @@ const controller = require("../controller/users");
 
 
 /* Declare Router */
-const route = express.Router(); //contains methods for manipulating data in users collection
+const route = express.Router(); 
 
 
 

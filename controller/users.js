@@ -28,7 +28,7 @@ module.exports.register = (userData) => {
     //save doc in database
     return newUser.save()
         .then(user => user)
-        .catch(err => 'Sign up failed'); //assign route
+        .catch(err => 'Sign up failed'); 
 };
 
 
@@ -44,15 +44,3 @@ module.exports.register = (userData) => {
 
 
 /* [DELETE] */
-
-
-
-
-
-/* NOTES 
-
-- bcrypt.hashSync(data, salt);
-    - data === data to be hashed
-    - salt === # of rounds encryption is processed
-
-*/
