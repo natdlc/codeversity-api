@@ -17,7 +17,7 @@ route.post("/register", (req, res) => {
     controller.register(userData)
         .then(newUser => res.send(newUser))
         .catch(err => "User creation failed");
-})
+});
 
 
 /* [READ] */
