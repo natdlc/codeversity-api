@@ -3,7 +3,6 @@ const User = require("../models/User"); //link to database
 const bcrypt = require("bcrypt"); //performs data hashing
 require("dotenv").config();
 const auth = require("../auth");
-const { findOne } = require("../models/User");
 
 /* Env */
 let salt = +process.env.SALT;
@@ -67,7 +66,6 @@ module.exports.loginUser = (data) => {
 module.exports.getProfile = (data) => {
     return User.findById(data)
         .then(result => {
-            // change value of password to empty string
             result.password = '';
             return result;
         })

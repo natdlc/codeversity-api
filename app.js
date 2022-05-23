@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/users");
+const courseRoutes = require("./routes/courses");
 
 
 /* Environment Setup */
@@ -25,7 +26,7 @@ connectStatus.once("open",
 
 /* Backend Routes */
 app.use("/users", userRoutes);
-
+app.use("/courses", courseRoutes);
 
 /* Server Gateway Response */
 app.get(
