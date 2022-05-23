@@ -11,11 +11,13 @@ let salt = +process.env.SALT;
 /* [CREATE] */
 module.exports.register = (userData) => {
 
-    let firstName = userData.firstName;
-    let lastName = userData.lastName;
-    let email = userData.email;
-    let password = userData.password;
-    let mobileNo = userData.mobileNo;
+    let {
+        firstName,
+        lastName,
+        email,
+        password,
+        mobileNo
+    } = userData;
     
     let newUser = new User({
 		firstName,
@@ -28,7 +30,7 @@ module.exports.register = (userData) => {
     //save doc in database
     return newUser.save()
         .then(user => user)
-        .catch(err => 'Sign up failed'); 
+        .catch(err => {message: 'Sign up failed'}); 
 };
 
 

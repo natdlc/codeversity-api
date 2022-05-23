@@ -1,19 +1,19 @@
 /* Dependencies / Modules */
 const express = require("express");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv"); //reads .env file
+const dotenv = require("dotenv");
 const userRoutes = require("./routes/users");
 
 
 /* Environment Setup */
-dotenv.config(); //setup environment
+dotenv.config();
 let acct = process.env.CRED;
 const port = process.env.PORT;
 
 
 /* Server Setup */
 const app = express();
-app.use(express.json()); //middleware
+app.use(express.json());
 
 
 /* Database Connection */
@@ -28,8 +28,12 @@ app.use("/users", userRoutes);
 
 
 /* Server Gateway Response */
-app.get("/",
-    (req, res) => res.send("Welcome to Codeversity"));
+app.get(
+    "/",
+    (req, res) => res.send("Welcome to Codeversity")
+);
 
-app.listen(port,
-    () => console.log(`--> API hosted on port: ${port}`));
+app.listen(
+    port,
+    () => console.log(`--> API hosted on port: ${port}`)
+);
