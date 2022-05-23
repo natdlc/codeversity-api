@@ -1,9 +1,7 @@
 /* Dependencies / Modules */
 const express = require("express");
 const controller = require("../controller/users");
-
-
-
+const auth = require("../auth");
 
 /* Declare Router */
 const route = express.Router(); 
@@ -20,8 +18,24 @@ route.post("/register", (req, res) => {
 });
 
 
-/* [READ] */
 
+
+/* [CREATE] User Auth */
+route.post("/login", (req, res) => {
+    controller.loginUser(req.body)
+        .then(result => res.send(result))
+        .catch(err => res.send(err.message));
+});
+
+
+
+
+/* [READ] */
+route.get("/details", auth.verify, (req, res) => {
+    controller.getProfile(req.user.id)
+        .then(result => res.send(result))
+        .catch(err => res.send(err.message));
+});
 
 
 /* [UPDATE] */
