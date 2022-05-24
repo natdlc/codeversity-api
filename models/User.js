@@ -1,8 +1,6 @@
 /* Dependencies / Modules */
 const mongoose = require("mongoose");
 
-
-
 /* Schema */
 const userSchema = new mongoose.Schema({
 	firstName: {
@@ -46,8 +44,6 @@ const userSchema = new mongoose.Schema({
 		},
 	],
 });
-
-
 
 /* Models */
 module.exports = mongoose.model("User", userSchema);
