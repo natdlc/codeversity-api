@@ -14,7 +14,7 @@ route.post("/create", verify, verifyAdmin, (req, res) => {
 });
 
 //get all courses
-route.get("/all", verify, verifyAdmin, (req, res) => {
+route.get("/all", (req, res) => {
 	controller
 		.getAllCourses()
 		.then((courses) => res.send(courses))

@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
 	firstName: {
 		type: String,
-		required: [true, "First Name is Required"],
+		default: "",
 	},
 	lastName: {
 		type: String,
-		required: [true, "Last Name is Required"],
+		default: "",
 	},
 	email: {
 		type: String,
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
 	},
 	mobileNo: {
 		type: String,
-		required: [true, "Mobile Number is Required"],
+		default: "",
 	},
 	enrollments: [
 		{
