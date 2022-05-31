@@ -7,7 +7,7 @@ module.exports.addCourse = (data) => {
 
 	return newCourse
 		.save()
-		.then((course) => course)
+		.then(() => true)
 		.catch((err) => {
 			message: err.message;
 		});
@@ -48,6 +48,20 @@ module.exports.archiveCourse = (courseId) => {
 	return Course.findByIdAndUpdate(courseId, { isActive: false })
 		.then(() => {
 			return { message: "SUCCESS: Course archived" };
+		})
+		.catch((err) => err.message);
+};
+
+module.exports.unarchiveCourse = (courseId) => {
+	return Course.findByIdAndUpdate(courseId, { isActive: true })
+		.then(() => true)
+		.catch((err) => err.message);
+};
+
+module.exports.deleteCourse = (courseId) => {
+	return Course.findByIdAndDelete(courseId)
+		.then(() => {
+			return { message: "Course deleted" };
 		})
 		.catch((err) => err.message);
 };

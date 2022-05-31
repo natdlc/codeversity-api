@@ -53,4 +53,20 @@ route.put("/:courseId/archive", verify, verifyAdmin, (req, res) => {
 		.catch((err) => res.send(err.message));
 });
 
+//unarchive course
+route.put("/:courseId/unarchive", verify, verifyAdmin, (req, res) => {
+	controller
+		.unarchiveCourse(req.params.courseId)
+		.then((result) => res.send(result))
+		.catch((err) => res.send(err.message));
+});
+
+//delete course
+route.delete("/:courseId", verify, verifyAdmin, (req, res) => {
+	controller
+		.deleteCourse(req.params.courseId)
+		.then((result) => res.send(result))
+		.catch((err) => res.send(err.message));
+});
+
 module.exports = route;
